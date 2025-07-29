@@ -1,0 +1,145 @@
+
+/* ✅ تنظیمات پایه و ریست کردن حاشیه‌ها برای کل عناصر صفحه */
+* {
+  box-sizing: border-box; /* تمام padding و border داخل اندازه کلی لحاظ بشه */
+  margin: 0;              /* حذف فاصله خارجی پیش‌فرض مرورگر */
+  padding: 0;             /* حذف فاصله داخلی پیش‌فرض مرورگر */
+}
+
+/* ✅ تنظیمات کلی برای بدنه صفحه */
+body {
+  height: 100%;             /* تمام ارتفاع صفحه رو بگیر */
+  margin: 0;
+  padding: 0;
+  font-family: Bnazanin;   /* فونت ساده و خوانا */
+  direction: rtl;            /* چیدمان راست به چپ برای فارسی */
+
+
+  background-color: #f5f5f5;
+  background-image: url('assets/bg7.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;  
+ /* background-size: 400 auto;    /* عرض تصویر ۶۰۰ پیکسل، ارتفاع خودکار */
+  background-position: top left; /* وسطِ بالا */
+  background-attachment: fixed;
+
+  line-height: 1.8;          /* فاصله بین خطوط برای خوانایی بهتر */
+  color: #222;               /* رنگ نوشته‌ها (خاکستری تیره برای کنتراست مناسب) */
+}
+
+/* ✅ طراحی نوار منو بالای صفحه */
+.navbar {
+  background: #86458C;         /* پس‌زمینه تیره */
+  padding: 15px;            /* فاصله داخلی برای زیبایی */
+}
+
+/* ✅ استایل لیست منو */
+.navbar ul {
+  list-style: none;         /* حذف علامت‌های پیش‌فرض لیست */
+  display: flex;            /* نمایش افقی آیتم‌ها با Flexbox */
+  justify-content: right;   /* چینش از راست (مطابق زبان فارسی) */
+  gap: 20px;                /* فاصله بین آیتم‌های منو */
+}
+
+/* ✅ استایل لینک‌های داخل منو */
+.navbar a {
+  color: white;             /* رنگ متن سفید */
+  text-decoration: none;    /* حذف خط زیر لینک */
+  font-weight: bold;        /* ضخامت بیشتر برای تاکید */
+}
+
+/* ✅ استایل لینک منو هنگام هاور (رفت‌وآمد موس) */
+.navbar a:hover {
+  text-decoration: underline; /* هنگام هاور خط‌دار شود */
+}
+
+/* ✅ استایل بخش اصلی شامل تصویر + رزومه */
+.main-section {
+  display: flex;            /* چیدمان افقی با Flexbox */
+  flex-wrap: wrap;          /* اجازه شکستن خط برای موبایل */
+  padding: 20px;            /* فاصله داخلی کلی */
+  gap: 20px;                /* فاصله بین اجزای چپ و راست */
+}
+
+/* ✅ تنظیمات تصویر سمت چپ */
+.left-side {
+  flex: 1 1 300px;          /* بخش با حداقل 300px و انعطاف‌پذیر */
+  max-width: 400px;         /* محدودیت حداکثر عرض */
+}
+
+.left-side img {
+  width: 100%;              /* عرض کامل نسبت به container */
+  height: auto;             /* حفظ نسبت تصویر */
+  border-radius: 8px;       /* گرد کردن گوشه‌ها */
+  display: block;           /* جلوگیری از فاصله پایین تصویر */
+  object-fit: cover;        /* حفظ تناسب و پوشش کامل */
+}
+
+/* ✅ تنظیمات رزومه سمت راست */
+.right-side {
+  flex: 2 1 500px;          /* فضای بیشتر نسبت به تصویر */
+  padding-right: 20px;      /* فاصله از تصویر سمت چپ */
+}
+
+.right-side h1 {
+  font-size: 1.8rem;        /* اندازه تیتر اصلی */
+  margin-bottom: 10px;      /* فاصله پایین برای خوانایی */
+}
+
+.right-side h2 {
+  font-size: 1.4rem;        /* اندازه تیتر فرعی */
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.right-side ul {
+  padding-right: 20px;      /* فاصله از لبه راست */
+}
+
+.right-side li {
+  margin-bottom: 8px;       /* فاصله بین آیتم‌های رزومه */
+}
+
+/* ✅ لینک‌های زیر رزومه (دوره‌ها) */
+.links {
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+.links a {
+  color: #0066cc;           /* رنگ آبی برای لینک‌ها */
+  text-decoration: none;    /* بدون خط زیر */
+}
+
+.links a:hover {
+  text-decoration: underline; /* هنگام هاور لینک خط‌دار شود */
+}
+
+/* ✅ بخش نمایش نظرات کاربران */
+.comments {
+  background: #eee;         /* رنگ خاکستری روشن برای زمینه نظرات */
+  padding: 20px;            /* فاصله داخلی برای خوانایی */
+  margin-top: 30px;         /* فاصله بالا از بخش قبل */
+}
+
+.comments h3 {
+  margin-bottom: 10px;      /* فاصله پایین عنوان */
+}
+
+/* ✅ طراحی واکنش‌گرا برای موبایل‌ها */
+@media (max-width: 768px) {
+  .main-section {
+    flex-direction: column;  /* چیدمان عمودی در موبایل */
+  }
+
+  .right-side, .left-side {
+    padding-right: 0;        /* حذف فاصله اضافه در صفحه کوچک */
+    max-width: 100%;         /* پر کردن عرض کامل صفحه */
+  }
+
+  .navbar ul {
+    flex-direction: column;  /* منو از حالت افقی به عمودی تبدیل شود */
+    align-items: flex-start; /* چینش آیتم‌ها از سمت راست */
+    gap: 10px;               /* فاصله کمتر بین آیتم‌ها در موبایل */
+  }
+}
